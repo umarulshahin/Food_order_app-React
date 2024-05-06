@@ -10,8 +10,7 @@ const RestaurantCard=(props)=>{
       avgRating,
       costForTwo,
       cloudinaryImageId,
-      deliveryTime
-      // sla
+      sla
   
     }=resdata?.info
     return (
@@ -22,7 +21,7 @@ const RestaurantCard=(props)=>{
         <h4>{cuisines.join(", ")}</h4>
         <h4>{avgRating}stars</h4>
         <h4>{costForTwo}</h4>
-        <h4>{deliveryTime}minites</h4>
+        <h4>{sla.deliveryTime}minites</h4>
   
       </div>
   
