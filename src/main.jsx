@@ -4,7 +4,6 @@ import approuter from './App.jsx'
 import './index.css'
 import {RouterProvider} from "react-router-dom";
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
   /* </React.StrictMode>, */
