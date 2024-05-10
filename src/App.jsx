@@ -1,12 +1,9 @@
 import React, { lazy,Suspense } from "react";
-import "./App.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
-// import About from './components/About.jsx';
 import Error from './components/Error.jsx';
 import Contact from './components/contact.jsx';
 import RestaurantMenu from "./components/Restaurant.Menu.jsx";
-// import Grocery from "./components/Grocery.jsx"
 import {createBrowserRouter,Outlet} from "react-router-dom";
 
 
@@ -36,7 +33,7 @@ const  approuter= createBrowserRouter([
       },
       {
         path:"/About",
-        element:<Suspense fallback={()=><h1>Loading....</h1>}> <About /></Suspense>
+        element:<Suspense fallback={<h1>Loading....</h1>}> <About /></Suspense>
     
       },
       {
@@ -49,7 +46,7 @@ const  approuter= createBrowserRouter([
       },
       {
         path:"/Grocery",
-        element:<Suspense fallback={()=><h1>Loading....</h1>}><Grocery /></Suspense>
+        element:<Suspense fallback={<h1>Loading....</h1>}><Grocery /></Suspense>
       }
 
     ],

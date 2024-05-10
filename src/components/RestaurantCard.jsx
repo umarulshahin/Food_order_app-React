@@ -15,9 +15,9 @@ const RestaurantCard=(props)=>{
     }=resdata?.info
     return (
   
-      <div className="res_card" style={{backgroundColor:"#f0f0f0"}}>
-        <img className="res_logo" src={CDN_URLS+cloudinaryImageId} alt="" />
-        <h3>{name}</h3>
+      <div className="p-4 m-4 w-[250px] bg-gray-300 rounded-lg hover:bg-gray-400" >
+        <img className="rounded-lg" src={CDN_URLS+cloudinaryImageId} alt="" />
+        <h3 className="font-bold py-4 text-lg" >{name}</h3>
         <h4>{cuisines.join(", ")}</h4>
         <h4>{avgRating}stars</h4>
         <h4>{costForTwo}</h4>
@@ -27,5 +27,21 @@ const RestaurantCard=(props)=>{
   
     )
   }
+
+export const RestaurantwithLabel=(RestaurantCard)=>{
+
+  return (props)=>{
+    const{opened,...rest}=props.resdata.info.availability
+    return (
+      <div>
+        {opened ? <label className=" absolute bg-green-400 px-2 rounded-lg ml-4">Open</label>:
+                  <label className=" absolute bg-red-400 px-2 rounded-lg ml-4">closed</label>}
+
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  }
+
+};
 
 export default RestaurantCard;
