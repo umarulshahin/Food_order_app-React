@@ -3,7 +3,7 @@ import React from "react";
 class userClass extends React.Component{
   constructor(props){
     super(props)
-    console.log("Chiled constructor"+this.props.name)
+    // console.log("Chiled constructor"+this.props.name)
     this.state={
       name:"dummy",
       location:"dummy"
@@ -13,11 +13,11 @@ class userClass extends React.Component{
   }
 
   async componentDidMount(){
-    console.log("chiled componentDidMound"+this.props.name)
+    // console.log("chiled componentDidMound"+this.props.name)
 
     const data = await fetch("https://api.github.com/users/Umarulshahin") 
     const json = await data.json()
-    console.log(json)
+    // console.log(json)
     this.setState({
       name:json.name,
       avatar_url:json.avatar_url
@@ -25,10 +25,10 @@ class userClass extends React.Component{
   }
 
   componentDidUpdate(){
-    console.log("componentdidUpdate")
+    // console.log("componentdidUpdate")
   }
   render(){
-    console.log("Chiled render"+this.props.name)
+    // console.log("Chiled render"+this.props.name)
     const{
         
         location,

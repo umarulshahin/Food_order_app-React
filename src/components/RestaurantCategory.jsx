@@ -1,21 +1,18 @@
 import ItemList from "./itemList";
-import { useState } from "react";
-const RestaurantCategory = ({ data }) => {
-
-    const[showItem,setshowItem]=useState(false)
+const RestaurantCategory = ({ data,showItems,setItemIndex }) => {
     const handleClick=()=>{
-        setshowItem(!showItem)
+      setItemIndex() 
     }
   return (
     <div>
-      <div className="w-6/12  mx-auto my-4 bg-gray-200 shadow-xl p-4">
-      <div className="flex justify-between">
-          <span className=" font-bold text-lg cursor-pointer" onClick={handleClick}>
+      <div className="w-6/12  mx-auto my-4 bg-gray-100 shadow-xl p-4">
+      <div className="flex justify-between cursor-pointer" onClick={handleClick}>
+          <span className=" font-bold text-lg cursor-pointer" >
             {data.title} ({data.itemCards.length})
           </span>
-          <span className="cursor-pointer" onClick={handleClick}>🔽</span>
+          <span className="cursor-pointer" >🔽</span>
       </div>
-      {showItem ? <ItemList items={data} />:""}
+      {showItems && <ItemList items={data} />}
 
 </div>
     </div>

@@ -5,16 +5,31 @@ import Error from './components/Error.jsx';
 import Contact from './components/contact.jsx';
 import RestaurantMenu from "./components/Restaurant.Menu.jsx";
 import {createBrowserRouter,Outlet} from "react-router-dom";
-
+import UserContext from "./utils/useContext.js";
+import { useState,useEffect } from "react";
 
 const Grocery=lazy(()=>import("./components/Grocery"))
 const About=lazy(()=>import("./components/About.jsx"))
 
+
 const AppLayout=()=>{
+
+  const [userName,setuserName]=useState()
+
+useEffect(()=>{
+
+   const data={
+        name:"Shahin"
+  }
+  setuserName(data.name)
+
+},[])
   return (
     <div>
+      <UserContext.Provider value={{defaultuser:userName,setuserName}}>
       <Header />
       <Outlet />
+      </UserContext.Provider>
 
     </div>
   );

@@ -1,9 +1,12 @@
 import { CDN_URLS } from "../utils/constans"
+import { useContext } from "react"
+import UserContext from "../utils/useContext"
+
 const RestaurantCard=(props)=>{
     const{
       resdata
     }=props
-  
+    const {defaultuser}=useContext(UserContext)
     const{
       name,
       cuisines,
@@ -22,6 +25,8 @@ const RestaurantCard=(props)=>{
         <h4>{avgRating}stars</h4>
         <h4>{costForTwo}</h4>
         <h4>{sla.deliveryTime}minites</h4>
+        <h4>User: {defaultuser}</h4>
+
   
       </div>
   
@@ -34,8 +39,8 @@ export const RestaurantwithLabel=(RestaurantCard)=>{
     const{opened,...rest}=props.resdata.info.availability
     return (
       <div>
-        {opened ? <label className=" absolute bg-green-400 px-2 rounded-lg ml-4">Open</label>:
-                  <label className=" absolute bg-red-400 px-2 rounded-lg ml-4">closed</label>}
+        {opened ? <label className=" absolute bg-green-500 px-4 py-1 rounded-lg ml-1">Open</label>:
+                  <label className=" absolute bg-red-500 px-4 py-1 rounded-lg ml-1">closed</label>}
 
         <RestaurantCard {...props}/>
       </div>

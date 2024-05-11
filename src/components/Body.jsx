@@ -1,15 +1,16 @@
 import RestaurantCard, { RestaurantwithLabel } from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import Shimmer from "./shimmar";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlinestatus";
 import { Restaurant } from "../utils/constans";
+import UserContext from "../utils/useContext";
 
 const Body = () => {
   const [ListofRestaurant, setListofRestaurant] = useState([]);
   const [search_text, setsearch_text] = useState("");
   const [filterRestaurant, setfilterRestaurant] = useState([]);
-
+  const {userName,setuserName}=useContext(UserContext)
   useEffect(() => {
     fetchData();
   }, []);
@@ -65,6 +66,7 @@ const Body = () => {
           </button>
         </div>
         <div className="flex m-4 p-4 items-center">
+        
           <button
             className="px-4 py-1 bg-gray-300 rounded-lg hover:bg-gray-400"
             onClick={() => {
@@ -76,6 +78,9 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div className="flex m-4 p-4 items-center">
+          <input type="text" value={userName} onChange={(e)=>setuserName(e.target.value)} className=" border border-black p-1" />
         </div>
       </div>
       <div className="res_container flex flex-wrap ">
