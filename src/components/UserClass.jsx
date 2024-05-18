@@ -1,5 +1,5 @@
 import React from "react";
-
+import { User_Git } from "../utils/constans";
 class userClass extends React.Component{
   constructor(props){
     super(props)
@@ -15,7 +15,7 @@ class userClass extends React.Component{
   async componentDidMount(){
     // console.log("chiled componentDidMound"+this.props.name)
 
-    const data = await fetch("https://api.github.com/users/Umarulshahin") 
+    const data = await fetch(User_Git) 
     const json = await data.json()
     // console.log(json)
     this.setState({

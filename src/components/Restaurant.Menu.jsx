@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import { RestaurantCategoryList } from "../utils/constans";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const [itemIndex, setItemIndex] = useState(null);
@@ -17,9 +18,7 @@ const RestaurantMenu = () => {
 
   const Categories =
     resinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (c) =>
-        c.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      (c) => c.card?.card?.["@type"] === RestaurantCategoryList
     );
   console.log(Categories);
   return (
@@ -32,8 +31,12 @@ const RestaurantMenu = () => {
         <RestaurantCategory
           key={category.card.card.title}
           data={category.card.card}
-          showItems={index === itemIndex ? true :false}
-          setItemIndex={index===itemIndex ?()=>setItemIndex(null):()=>setItemIndex(index)}
+          showItems={index === itemIndex ? true : false}
+          setItemIndex={
+            index === itemIndex
+              ? () => setItemIndex(null)
+              : () => setItemIndex(index)
+          }
         />
       ))}
     </div>
