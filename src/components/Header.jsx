@@ -12,7 +12,7 @@ import UserContext from "../utils/useContext"
       return(
         <div className="flex justify-between bg-pink-200 shadow-2xl mb-2 sm:bg-yellow-200 md:bg-green-200 lg:bg-blue-200 xl:bg-red-200">
           <div className="logo_container">
-            <img className=" w-56"  src={LOGO_URLS}/>
+            <img className=" w-56 "  src={LOGO_URLS}/>
           </div>
     
           <div className="flex items-center">

@@ -44,7 +44,7 @@ const Body = () => {
   return ListofRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div className="body ml-8  w-screen ">
       <div className="filter flex">
         <div className="search m-4 p-4">
           <input
@@ -68,7 +68,7 @@ const Body = () => {
         <div className="flex m-4 p-4 items-center">
         
           <button
-            className="px-4 py-1 bg-gray-300 rounded-lg hover:bg-gray-400"
+            className="px-4 py-1 bg-gray-400 rounded-lg hover:bg-gray-400"
             onClick={() => {
               const filteredList = ListofRestaurant.filter(
                 (res) => res.info.avgRating > 4

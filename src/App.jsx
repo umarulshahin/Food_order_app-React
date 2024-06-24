@@ -25,7 +25,7 @@ useEffect(()=>{
 
 },[])
   return (
-    <div>
+    <div className="bg-gray-300 h-auto" >
       <UserContext.Provider value={{defaultuser:userName,setuserName}}>
       <Header />
       <Outlet />
